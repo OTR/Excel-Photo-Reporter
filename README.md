@@ -92,3 +92,18 @@ Create a report about existing books on amazon by given keyword (by default keyw
     * Make an image being auto-resized with a cell
   
 12. Make a worksheet protected from modifying
+
+13. Make page borders up to 0,5 cm and get rid of running titles (header, footer)
+
+### 3rd Test Case:
+
+1. Read given broken Excel spreadsheet, get values of cells
+
+2. Create a new spreadsheet with name `fixed_file.xlsx` with columns as:
+   * First column (A) is the number of row in given spreadsheet
+   * Second column (B) is the address of a shelf's cell on a stock
+   * Third column (C) is the broken barcode of a good in shelf's cell
+   * Fourth column (D) is the fixed barcode of the good
+   
+
+3.

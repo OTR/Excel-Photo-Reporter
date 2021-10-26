@@ -4,9 +4,23 @@
 
 #### via Pip:
 
-`$ pip install requirements.txt`
+    $ python -m venv excel_venv
+    $ cd excel_venv
+    (Linux) $ source bin/activate
+    (Windows) $ Scripts\activate.bat
+    $ git clone https://github.com/OTR/Excel-Photo-Reporter.git excel_report
+    $ cd excel_report
+    $ pip install -r requirements.txt
+    $ python main.py
 
 #### via Pipenv:
+
+    $ pip install pipenv
+    $ git clone https://github.com/OTR/Excel-Photo-Reporter.git excel_report
+    $ cd excel_report
+    $ pipenv install
+    $ pipenv shell
+    $ python main.py
 
 `$ pipenv install`
 

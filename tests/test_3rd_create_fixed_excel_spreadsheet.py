@@ -17,7 +17,7 @@ try:
     from io import BytesIO
     CAN_DRAW = True
 except ImportError:
-    pass
+    print("We can't draw a picture but it's OK. Install `Pillow` package if you want")
 
 CWD = os.path.dirname(os.path.abspath(__file__))
 PATH_TO_BROKEN_SHEET = os.path.join(CWD, "input", "3rd_test_case", "data.xlsx")
@@ -110,20 +110,22 @@ class TestCreateFixedFile(unittest.TestCase):
             if fixed_barcode.isdecimal() and len(fixed_barcode) == 18:
                 path_to_image_with_barcode = os.path.join(PATH_TO_DEST_IMAGE_FOLDER,
                                                           f"{fixed_barcode}_at_{address}.jpg")
+                initial_image = type(self).binary_data
+                # if we have Pillow library then
                 if CAN_DRAW:
                     # Draw a barcode
-                    stream = BytesIO(type(self).binary_data)
+                    stream = BytesIO(initial_image)
                     image = Image.open(stream)
                     draw = ImageDraw.Draw(image)
                     font = ImageFont.truetype("arial.ttf", 64)
                     draw.text((150, 900), fixed_barcode, fill="black", font=font)
                     new_stream = BytesIO()
                     image.save(new_stream, format="JPEG")
-                    type(self).binary_data = new_stream.getvalue()
+                    initial_image = new_stream.getvalue()
 
                 fd = os.open(path_to_image_with_barcode, os.O_WRONLY | os.O_BINARY | os.O_CREAT)
                 with os.fdopen(fd, "wb") as fo:
-                    fo.write(type(self).binary_data)
+                    fo.write(initial_image)
 
     def test_22_update_sheet(self):
         """Задание №2.2"""
@@ -132,6 +134,8 @@ class TestCreateFixedFile(unittest.TestCase):
         for root, dirs, files in os.walk(PATH_TO_DEST_IMAGE_FOLDER):
             for _file in files:
                 result = BARCODE_PATTERN.match(_file)
+                if result is None:
+                    continue
                 # if we found images with barcode in given folder
                 if result.groups():
                     barcode = result.groups()[0]

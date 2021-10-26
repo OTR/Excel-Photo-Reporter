@@ -22,7 +22,6 @@
     $ pipenv shell
     $ python main.py
 
-`$ pipenv install`
 
 ### Run tests:
 

@@ -74,6 +74,7 @@ class TestCreateFixedFile(unittest.TestCase):
         # Save on a disk
         try:
             fixed_wb.save(PATH_TO_FIXED_SHEET)
+            print(f"Task №1 is done. Take a look at {PATH_TO_FIXED_SHEET} file")
         except PermissionError as err:
             if err.args[0] == 13:
                 self.fail("File is already opened in another application. Close it!")
@@ -127,6 +128,8 @@ class TestCreateFixedFile(unittest.TestCase):
                 with os.fdopen(fd, "wb") as fo:
                     fo.write(initial_image)
 
+        print(f"Task №2.1 is done. Take a look at {PATH_TO_DEST_IMAGE_FOLDER} folder")
+
     def test_22_update_sheet(self):
         """Задание №2.2"""
         # Find all images with barcode in their name in given folder
@@ -166,6 +169,7 @@ class TestCreateFixedFile(unittest.TestCase):
         # Save on a disk
         try:
             wb.save(PATH_TO_FIXED_SHEET)
+            print(f"Task №2.2 is done. Take a look at {PATH_TO_FIXED_SHEET} file")
         except PermissionError as err:
             if err.args[0] == 13:
                 self.fail("File is already opened in another application. Close it!")

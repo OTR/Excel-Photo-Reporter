@@ -34,6 +34,10 @@ To run exact TestCase:
 `$ python -m unittest tests.test_2nd_create_amazon_books_report.TestCreateAmazonBooksReport
 `
 
+### Run linter
+
+`flake8 --append-config linter-setup.cfg`
+
 ### TODO List:
 
 * ~~catch `PermissionError: [Errno 13] Permission denied: 'workbook.xlsx'` when trying to open already opened file~~ Done
@@ -85,13 +89,13 @@ Create a report about existing books on amazon by given keyword (by default keyw
     * Price for paperback, $:   11 pt
     * Date of publishing:       11 pt
     * Cover:                    21 pt
-    
+
 7. Change the 1st row:
     * Background color to light blue RGB(155, 194, 230)
     * Horizontally align text to center
-    * Vertically alighn text to top
+    * Vertically align text to top
     * Make a font style bold
-    
+
 8. Change other rows:
     * Horizontally align text to left
     * Vertically align text to top

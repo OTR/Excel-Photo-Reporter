@@ -45,7 +45,40 @@ To run exact TestCase:
 
 ### Project Structure
 
-`linter-setup.cfg` custom rules for flake8
+* tree command for Windows: `$ cmd //c tree //a //f excel/`
+
+#### Tree output
+
+      |   linter-setup.cfg
+      |   main.py
+      +---scripts
+      |   |   scrape_books_from_amazon.py
+      \---tests
+          |   test_1st_create_workbook.py
+          |   test_2nd_create_amazon_books_report.py
+          |   test_3rd_create_fixed_excel_spreadsheet.py
+          |   test_scrape_books.py
+          +---input
+          |   |   amazon.html
+          |   |   handmade_books_from_amazon.xlsx
+          |   +---2nd_test_case
+          |   |       handmade_amazon_books_fields.csv
+          |   +---3rd_test_case
+          |   |       data.xlsx
+          |   |       parcel.jpg
+          |   +---book_covers
+          +---output
+          |   +---1st_test_case
+          |   |       1st_test_create_workbook.xlsx
+          |   +---2nd_test_case
+          |   |       2nd_test_create_amazon_book_report.xlsx
+          |   +---3rd_test_case
+          |   |   |   fixed_data.xlsx
+          |   |   \---images
+          |   \---scrape_books
+
+
+`linter-setup.cfg` custom rules for `flake8`
 
 #### `/tests/` folder contains test cases for unittest
 

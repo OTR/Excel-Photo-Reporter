@@ -36,7 +36,7 @@ To run exact TestCase:
 
 ### Run linter
 
-`flake8 --append-config linter-setup.cfg`
+`$ flake8 --append-config linter-setup.cfg`
 
 ### TODO List:
 
@@ -44,6 +44,8 @@ To run exact TestCase:
 * 
 
 ### Project Structure
+
+`linter-setup.cfg` custom rules for flake8
 
 #### `/tests/` folder contains test cases for unittest
 

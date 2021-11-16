@@ -1,2 +1,5 @@
 !.gitignore
 !3rd_test_case/
+scrape_books/
+1st_test_case/*.xlsx
+2nd_test_case/*.xlsx
